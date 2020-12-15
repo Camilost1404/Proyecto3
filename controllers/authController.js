@@ -110,10 +110,14 @@ exports.actualizar = async (req, res, next) => {
                 })
 
             }else{
-                res.status(404).send({
+                res.status(409).send({
                     message: "No puede poner la misma contraseña"                
                 })
             }
+        }else{
+            res.status(404).send({
+                message: "User not found"
+            })
         }
     } catch (error) {
         
